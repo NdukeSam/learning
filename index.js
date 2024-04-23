@@ -49,6 +49,34 @@
 
     console.log(mkpo);
 
+    if ('radius' in another) {
+        console.log('Circle has a radius');
+    }
+
+    // Abstraction: Hide the details, show only the essentials
+    function Square(radius) {
+        this.area = area;
+        //by declaring a local variable, you can hide its details from the global scope
+        let defaultLocation = {x: 0, y: 0}
+        
+        let = computeOptimumLocation = function (factor) {
+            //...
+        }
+
+        this.draw = function(){
+            computeOptimumLocation(0.1);
+            //if you want to access members of the new Square object, you use the 'this' keyword
+            this.radius
+            console.log('draw');
+        }
+
+        //scope is temporary; after executing a function, the scope dies
+        //Closure stays; its permanent
+    }
+
+    const square = new Square(20)
+    // square.computeOptimumLocation(0.1) is no longer accessible to the global scope; it was locally declared
+
     // const Circle1 = new Function ('radius', `
     // this.radius = radius;
     // this.draw = function () {
