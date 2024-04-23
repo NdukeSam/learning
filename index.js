@@ -54,10 +54,14 @@
     }
 
     // Abstraction: Hide the details, show only the essentials
-    function Square(radius) {
+    function Square(area) {
         this.area = area;
         //by declaring a local variable, you can hide its details from the global scope
         let defaultLocation = {x: 0, y: 0}
+
+        this.defaultLocation = function() {
+            return defaultLocation;
+        }
         
         let = computeOptimumLocation = function (factor) {
             //...
@@ -69,12 +73,26 @@
             this.radius
             console.log('draw');
         }
+        //Getters and Setters
+        Object.defineProperty(this, 'defaultLocation',{
+            get: function () {
+            return defaultLocation
+            },
+            set: function (value) {
+                if (!value.x || !value.y) {
+                    throw new Error('Invalid location')
+                }
+                    defaultLocation = value;
+                
+            }
+        })
 
         //scope is temporary; after executing a function, the scope dies
         //Closure stays; its permanent
     }
 
     const square = new Square(20)
+    square.defaultLocation = 1;
     // square.computeOptimumLocation(0.1) is no longer accessible to the global scope; it was locally declared
 
     // const Circle1 = new Function ('radius', `
