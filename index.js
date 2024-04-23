@@ -39,8 +39,15 @@
      //Reiterate over or enumerate a property
 
      for (const mkpo in another) {
-        console.log(mkpo, another[mkpo])
+        if  (typeof another[mkpo] !== 'function') {
+            
+            console.log(mkpo, another[mkpo])
+        }
     }
+
+    let mkpo = Object.keys(another);
+
+    console.log(mkpo);
 
     // const Circle1 = new Function ('radius', `
     // this.radius = radius;
