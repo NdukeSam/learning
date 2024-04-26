@@ -23,10 +23,12 @@ function Sw() {
         // console.log(duration);
     },
     this.reset = function () {
-       if( startTime = null && stopTime = null && running = false && duration = 0)
-        throw new Error ('StopWatch reset. Kindly start again')
+       if( (startTime === null) && (stopTime === null) && (running === false) && (duration === 0)) {
+
+           throw new Error ('StopWatch reset. Kindly start again')
+        }
         startTime = null, stopTime = null, running = false, duration = 0;
-       console.log('Stopwatch reset');
+        console.log('Stopwatch reset');
     }
 
     Object.defineProperty(this, 'duration', {
