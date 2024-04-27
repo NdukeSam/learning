@@ -25,7 +25,10 @@ const activeJobs = jobs.filter( job =>  job.isActive)
 const animal = {
     name: 'Sheriff',
     walk () {
-        setTimeout( function() {
+        // var self = this;
+
+        // arrow functions don't rebind the 'this' keyword
+        setTimeout( ()=> {
             // console.log('got them limbs')
             console.log('this', this);
         }, 1000);
@@ -34,3 +37,19 @@ const animal = {
 }
 
 animal.walk()
+//Array.map
+const colors = ['red', 'white', 'blue'];
+const items = colors.map(color => `<li>${color}</li>`)
+
+console.log(items);
+
+// Destructuring
+const address = {
+    street: '',
+    city: '',
+    country: '',
+    
+}
+
+const {} = address
+
